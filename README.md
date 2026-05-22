@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Café Planken — Mannheim
 
-## Getting Started
+Eine editorial-warme One-Page-Marketingseite für **Café Planken** (O6 6, 68161 Mannheim) — Teil der Mannheimer Eismanufaktur. Eis, Pasta, Kuchen, Kaffee. Manufaktur auf den Planken.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** · App Router · TypeScript (strict)
+- **Tailwind CSS 4** · CSS-first theme via `@theme`
+- **Motion 12** (Framer Motion successor)
+- **next/font** mit Fraunces (Display), Inter (Body), JetBrains Mono (Mikrolabels)
+- **lucide-react** Icons
+- Static export-fähig, deploybar auf Vercel / Cloudflare Pages
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # localhost:3000
+npm run build    # Production Build
+npm run start    # Production Server
+npm run lint     # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Node ≥ 20 erforderlich (entwickelt unter Node 24).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Projektstruktur
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+  layout.tsx          – Root, Fonts, Metadata, JSON-LD
+  page.tsx            – One-Page Assembler
+  globals.css         – Design Tokens (CSS variables + @theme)
+  robots.ts           – /robots.txt
+  sitemap.ts          – /sitemap.xml
+  icon.svg            – Favicon
+  impressum/          – Impressum-Platzhalter
+  datenschutz/        – Datenschutz-Platzhalter
+components/
+  sections/           – Nav, Hero, Intro, Menu, Highlights, Reviews, Visit, Footer
+  ui/                 – Wordmark, SectionEyebrow, Rating, ServiceBadge, Reveal
+lib/
+  content.ts          – Alle Inhalte (Speisekarte, Öffnungszeiten, Adresse, Reviews)
+  motion.ts           – Shared Animations-Tokens
+  utils.ts            – cn() Helper
+```
 
-## Learn More
+## Inhalte aktualisieren
 
-To learn more about Next.js, take a look at the following resources:
+Alle redaktionellen Inhalte liegen zentral in `lib/content.ts`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Feld                  | Hinweis                                                   |
+| --------------------- | --------------------------------------------------------- |
+| `business.hours`      | Öffnungszeiten — beeinflusst auch JSON-LD Schema          |
+| `business.phone`      | Telefonnummer, wird in Nav / Footer / Visit referenziert  |
+| `business.rating`     | Sterne + Anzahl Reviews (Anzeige in Hero & Reviews)       |
+| `menu`                | Kategorien + Items + Preise                               |
+| `reviews`             | Pullquotes mit Quelle                                     |
+| `mapsEmbed`/`mapsLink`| Google-Maps-iFrame-URL und Routenlink                     |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Bilder werden über `next/image` von Unsplash geladen (siehe `next.config.ts` → `images.remotePatterns`). Eigene Fotos einfach in `/public/img/…` ablegen und URLs in `hero.tsx` / `intro.tsx` ersetzen.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+vercel deploy
+```
+
+Keine Env-Variablen nötig. Build-Output ist vollständig statisch.
+
+### Cloudflare Pages / Anywhere static
+
+In `next.config.ts` `output: "export"` aktivieren und `npm run build` → Inhalt aus `out/` deployen.
+
+## Design-Entscheidungen
+
+Siehe **DECISIONS.md** für Farbpalette, Typografie-Wahl, Layout-Begründungen und Quellen der Inhaltsrecherche.
+
+## Lizenz & Daten
+
+Alle Inhalte sind aus öffentlich zugänglichen Quellen (Google Reviews, Instagram, Coolibri, TripAdvisor, Mannheimer Eismanufaktur) recherchiert. Vor Live-Gang sind Impressum und Datenschutzerklärung juristisch zu ergänzen.
