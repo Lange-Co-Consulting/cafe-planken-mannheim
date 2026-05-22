@@ -34,7 +34,7 @@ export function Nav() {
           : "bg-transparent border-b border-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between px-5 md:h-20 md:px-10">
+      <div className="mx-auto flex h-14 max-w-[1320px] items-center justify-between px-5 md:h-20 md:px-10">
         <Wordmark size="md" />
         <nav className="hidden items-center gap-8 md:flex" aria-label="Hauptnavigation">
           {navItems.map((item) => (
@@ -59,7 +59,7 @@ export function Nav() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="md:hidden -mr-1 p-1 text-ink"
+          className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-ink md:hidden"
           aria-label="Menü öffnen"
         >
           <Menu size={22} strokeWidth={1.6} />
@@ -74,32 +74,32 @@ export function Nav() {
         )}
         aria-hidden={!open}
       >
-        <div className="flex h-16 items-center justify-between px-5">
+        <div className="flex h-14 items-center justify-between px-5">
           <Wordmark size="md" />
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="-mr-1 p-1 text-ink"
+            className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-ink"
             aria-label="Menü schließen"
           >
             <X size={22} strokeWidth={1.6} />
           </button>
         </div>
         <div className="rule" />
-        <nav className="flex flex-col px-5 pt-6" aria-label="Mobile Navigation">
+        <nav className="flex flex-col px-5 pt-4" aria-label="Mobile Navigation">
           {navItems.map((item, i) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="border-b border-rule py-5 font-display font-display-soft text-3xl tracking-tight text-ink"
+              className="border-b border-rule py-5 font-display font-display-soft text-2xl tracking-tight text-ink"
               style={{ animationDelay: `${i * 60}ms` }}
             >
               {item.label}
             </Link>
           ))}
         </nav>
-        <div className="px-5 pt-8">
+        <div className="px-5 pt-6">
           <a
             href={`tel:${business.phone.replace(/\s+/g, "")}`}
             className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm text-bg"

@@ -7,11 +7,11 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative bg-ink text-bg">
-      <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-10 md:py-28">
-        <div className="grid grid-cols-12 gap-x-6 gap-y-12 md:gap-x-10">
+      <div className="mx-auto max-w-[1320px] px-5 py-16 md:px-10 md:py-28">
+        <div className="grid grid-cols-12 gap-x-5 gap-y-10 md:gap-x-10 md:gap-y-12">
           {/* Giant wordmark */}
           <div className="col-span-12">
-            <span className="font-display font-display-soft block text-[clamp(3rem,12vw,9rem)] leading-[0.9] tracking-[-0.04em]">
+            <span className="font-display font-display-soft block text-[clamp(3.25rem,16vw,9rem)] leading-[0.9] tracking-[-0.04em]">
               <span className="italic">Café</span> Planken.
             </span>
           </div>
@@ -73,7 +73,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-bg/15 pt-8 text-xs text-bg/60 md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-bg/15 pt-6 text-xs text-bg/60 md:mt-16 md:flex-row md:items-center md:justify-between md:pt-8">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <Wordmark size="sm" className="text-bg" />
             <span>© {year} — alle Rechte vorbehalten</span>

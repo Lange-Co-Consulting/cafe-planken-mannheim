@@ -6,10 +6,10 @@
    ────────────────────────────────────────────────────────── */
 
 :root {
-  /* surfaces */
-  --bg: #f4ece0;
-  --bg-soft: #ece2d2;
-  --paper: #faf5eb;
+  /* surfaces — fast weiß, nur ein Hauch Wärme */
+  --bg: #fafaf7;
+  --bg-soft: #f2efe9;
+  --paper: #ffffff;
 
   /* ink */
   --ink: #1c1812;
@@ -17,8 +17,8 @@
   --ink-3: #8a8275;
 
   /* lines */
-  --rule: #ddd0bc;
-  --rule-strong: #c9b99f;
+  --rule: #e8e3d8;
+  --rule-strong: #d3cbb9;
 
   /* accent */
   --accent: #a64d38;
@@ -58,6 +58,7 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 html,
@@ -66,6 +67,20 @@ body {
   color: var(--ink);
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* tap target safety on mobile */
+@media (max-width: 768px) {
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 ::selection {
@@ -127,13 +142,16 @@ section[id] {
 
 /* responsive type scale */
 .display-xl {
-  font-size: clamp(2.75rem, 7.5vw, 6.5rem);
+  font-size: clamp(2.5rem, 8.5vw, 6.5rem);
+  line-height: 0.95;
 }
 .display-lg {
-  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 1;
 }
 .display-md {
-  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  font-size: clamp(1.5rem, 4.2vw, 2.75rem);
+  line-height: 1.05;
 }
 
 /* link styles */

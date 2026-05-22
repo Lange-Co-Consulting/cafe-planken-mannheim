@@ -20,13 +20,13 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-[1320px] px-5 pb-16 pt-8 md:px-10 md:pb-28 md:pt-12 lg:pt-16">
+      <div className="mx-auto max-w-[1320px] px-5 pb-14 pt-6 md:px-10 md:pb-28 md:pt-12 lg:pt-16">
         {/* Editorial top-line: location + EST */}
         <motion.div
           initial={initial}
           animate={animate}
           transition={t(0.05)}
-          className="mb-10 flex items-center justify-between text-[11px] md:mb-16"
+          className="mb-8 flex items-center justify-between text-[11px] md:mb-16"
         >
           <span className="eyebrow">Mannheim · Planken · O6 6</span>
           <span className="eyebrow hidden md:inline">
@@ -35,7 +35,7 @@ export function Hero() {
         </motion.div>
 
         {/* Headline + accent image side by side */}
-        <div className="grid grid-cols-12 gap-x-6 gap-y-12 md:gap-x-10">
+        <div className="grid grid-cols-12 gap-x-5 gap-y-10 md:gap-x-10 md:gap-y-12">
           <motion.h1
             initial={initial}
             animate={animate}
@@ -74,12 +74,12 @@ export function Hero() {
         </div>
 
         {/* Sub copy + meta */}
-        <div className="mt-14 grid grid-cols-12 gap-x-6 gap-y-10 md:mt-20 md:gap-x-10">
+        <div className="mt-12 grid grid-cols-12 gap-x-5 gap-y-8 md:mt-20 md:gap-x-10 md:gap-y-10">
           <motion.p
             initial={initial}
             animate={animate}
             transition={t(0.35)}
-            className="col-span-12 max-w-[34ch] font-display-soft text-xl text-ink-2 md:col-span-6 md:col-start-2 md:text-2xl"
+            className="col-span-12 max-w-[34ch] font-display-soft text-lg leading-snug text-ink-2 md:col-span-6 md:col-start-2 md:text-2xl"
           >
             {heroCopy.sub}
           </motion.p>
@@ -88,7 +88,7 @@ export function Hero() {
             initial={initial}
             animate={animate}
             transition={t(0.45)}
-            className="col-span-12 flex flex-col gap-4 md:col-span-4 md:col-start-9 md:items-end md:text-right"
+            className="col-span-12 flex flex-col gap-3 md:col-span-4 md:col-start-9 md:items-end md:gap-4 md:text-right"
           >
             <Rating
               value={business.rating.value}

@@ -7,31 +7,31 @@ import { business, mapsEmbed, mapsLink } from "@/lib/content";
 export function Visit() {
   return (
     <section id="besuchen" className="relative" aria-label="Besuchen">
-      <div className="mx-auto max-w-[1320px] px-5 py-24 md:px-10 md:py-36">
-        <div className="grid grid-cols-12 gap-x-6 gap-y-10 md:gap-x-10">
+      <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-10 md:py-36">
+        <div className="grid grid-cols-12 gap-x-5 gap-y-6 md:gap-x-10 md:gap-y-10">
           <Reveal className="col-span-12 md:col-span-5">
             <SectionEyebrow number="§ V">Besuchen</SectionEyebrow>
-            <h2 className="mt-6 font-display display-lg text-ink">
+            <h2 className="mt-5 font-display display-lg text-ink md:mt-6">
               Komm vorbei — wir <em className="italic">freuen uns</em>.
             </h2>
           </Reveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-12 gap-x-6 gap-y-12 md:mt-20 md:gap-x-10">
+        <div className="mt-10 grid grid-cols-12 gap-x-5 gap-y-10 md:mt-20 md:gap-x-10 md:gap-y-12">
           {/* Address + hours column */}
           <Reveal className="col-span-12 md:col-span-5">
-            <div className="space-y-12">
+            <div className="space-y-10 md:space-y-12">
               {/* Address */}
               <div>
                 <p className="eyebrow mb-3">Adresse</p>
                 <address className="not-italic">
-                  <p className="font-display font-display-soft text-2xl leading-tight text-ink">
+                  <p className="font-display font-display-soft text-xl leading-tight text-ink md:text-2xl">
                     Café Planken
                   </p>
-                  <p className="mt-1 font-display font-display-soft text-2xl leading-tight text-ink">
+                  <p className="mt-1 font-display font-display-soft text-xl leading-tight text-ink md:text-2xl">
                     {business.address.street}
                   </p>
-                  <p className="mt-1 text-ink-2">
+                  <p className="mt-1 text-sm text-ink-2 md:text-base">
                     {business.address.postal} {business.address.city} ·{" "}
                     {business.address.quarter}
                   </p>
@@ -54,14 +54,16 @@ export function Visit() {
                   {business.hours.map((h) => (
                     <div
                       key={h.label}
-                      className="flex items-baseline justify-between gap-6 py-3.5"
+                      className="flex items-baseline justify-between gap-4 py-3 md:gap-6 md:py-3.5"
                     >
-                      <dt className="font-display font-display-soft text-lg text-ink">
+                      <dt className="font-display font-display-soft text-base text-ink md:text-lg">
                         {h.label}
                       </dt>
-                      <dd className="font-mono text-sm tabular-nums text-ink-2">
+                      <dd className="shrink-0 font-mono text-xs tabular-nums text-ink-2 md:text-sm">
                         {h.opens}
-                        <span aria-hidden className="px-1.5 text-ink-3">—</span>
+                        <span aria-hidden className="px-1 text-ink-3 md:px-1.5">
+                          —
+                        </span>
                         {h.closes === "00:00" ? "Mitternacht" : h.closes}
                       </dd>
                     </div>
@@ -77,17 +79,17 @@ export function Visit() {
                     href={`tel:${business.phone.replace(/\s+/g, "")}`}
                     className="group inline-flex items-center gap-3 text-ink"
                   >
-                    <Phone size={16} strokeWidth={1.6} />
-                    <span className="font-display font-display-soft text-xl">
+                    <Phone size={16} strokeWidth={1.6} className="shrink-0" />
+                    <span className="font-display font-display-soft text-lg md:text-xl">
                       {business.phoneDisplay}
                     </span>
                   </a>
                   <a
                     href={`mailto:${business.email}`}
-                    className="group inline-flex items-center gap-3 text-ink"
+                    className="group inline-flex min-w-0 items-center gap-3 text-ink"
                   >
-                    <Mail size={16} strokeWidth={1.6} />
-                    <span className="font-display font-display-soft text-xl">
+                    <Mail size={16} strokeWidth={1.6} className="shrink-0" />
+                    <span className="truncate font-display font-display-soft text-base md:text-xl">
                       {business.email}
                     </span>
                   </a>
@@ -124,9 +126,9 @@ export function Visit() {
                   allowFullScreen
                 />
               </div>
-              <div className="flex items-center justify-between border-t border-rule bg-paper px-5 py-4">
+              <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-rule bg-paper px-4 py-3 md:px-5 md:py-4">
                 <span className="eyebrow text-ink-3">
-                  Mannheim · 49.4878°N · 8.4661°O
+                  49.4878°N · 8.4661°O
                 </span>
                 <a
                   href={mapsLink}
@@ -134,7 +136,7 @@ export function Visit() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs text-ink"
                 >
-                  <span className="link-underline">Route</span>
+                  <span className="link-underline">Route öffnen</span>
                   <ArrowUpRight size={12} strokeWidth={1.6} />
                 </a>
               </div>

@@ -8,23 +8,23 @@ export function Gallery() {
       className="relative bg-bg-soft"
       aria-label="Aus dem Tresen"
     >
-      <div className="mx-auto max-w-[1320px] px-5 py-24 md:px-10 md:py-32">
-        <div className="grid grid-cols-12 items-end gap-x-6 gap-y-8 md:gap-x-10">
+      <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-10 md:py-32">
+        <div className="grid grid-cols-12 items-end gap-x-5 gap-y-5 md:gap-x-10 md:gap-y-8">
           <Reveal className="col-span-12 md:col-span-5">
             <SectionEyebrow>Aus dem Tresen</SectionEyebrow>
-            <h2 className="mt-6 font-display display-md text-ink">
+            <h2 className="mt-5 font-display display-md text-ink md:mt-6">
               Was diese Woche <em className="italic">unter Glas</em> steht.
             </h2>
           </Reveal>
           <Reveal className="col-span-12 md:col-span-4 md:col-start-9" delay={0.05}>
-            <p className="max-w-[34ch] text-sm text-ink-2">
+            <p className="max-w-[34ch] text-sm leading-relaxed text-ink-2">
               Direkt aus unserer Konditorei. Die Karte rotiert wöchentlich —
               folgt uns auf Instagram für das aktuelle Tagesangebot.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-14 grid grid-cols-12 gap-x-6 gap-y-6 md:mt-20 md:gap-x-10">
+        <div className="mt-10 grid grid-cols-12 gap-x-5 gap-y-6 md:mt-20 md:gap-x-10">
           <Reveal
             className="col-span-12 md:col-span-7 md:row-span-2"
             delay={0.05}
@@ -48,7 +48,7 @@ export function Gallery() {
 
           <Reveal className="col-span-12 md:col-span-4 md:col-start-9" delay={0.1}>
             <figure className="relative">
-              <div className="relative aspect-[5/6] w-full overflow-hidden bg-bg">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-bg md:aspect-[5/6]">
                 <Image
                   src="/img/storefront.jpg"
                   alt="Detail des Eingangs zum Café Planken auf den Planken, goldene Wortmarke."
@@ -69,20 +69,20 @@ export function Gallery() {
               href="https://www.instagram.com/cafeplanken_mannheim/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex aspect-[5/3] w-full items-center justify-between gap-4 overflow-hidden border border-rule bg-paper p-5 transition-colors hover:border-rule-strong md:aspect-[5/4] md:p-6"
+              className="group relative flex w-full flex-col gap-5 overflow-hidden border border-rule bg-paper p-5 transition-colors hover:border-rule-strong md:aspect-[5/4] md:flex-row md:items-center md:justify-between md:p-6"
             >
-              <div className="flex h-full flex-col justify-between">
+              <div className="flex flex-1 flex-col gap-3 md:h-full md:justify-between md:gap-0">
                 <span className="eyebrow-accent">Instagram</span>
                 <div>
-                  <p className="font-display font-display-soft text-xl leading-tight text-ink md:text-2xl">
-                    @cafeplanken_<wbr />mannheim
+                  <p className="font-display font-display-soft text-lg leading-tight text-ink md:text-2xl">
+                    @cafeplanken<wbr />_mannheim
                   </p>
-                  <p className="mt-1 text-xs text-ink-3">
+                  <p className="mt-1 text-xs leading-relaxed text-ink-3">
                     Tagesangebot, neue Eissorten, was gerade frisch ist.
                   </p>
                 </div>
               </div>
-              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-rule transition-transform group-hover:rotate-3 md:h-20 md:w-20">
+              <div className="relative h-14 w-14 shrink-0 self-end overflow-hidden rounded-full border border-rule transition-transform group-hover:rotate-3 md:h-20 md:w-20 md:self-auto">
                 <Image
                   src="/img/logo.jpg"
                   alt="Café Planken Logo"
