@@ -13,7 +13,7 @@ export function Gallery() {
           <Reveal className="col-span-12 md:col-span-5">
             <SectionEyebrow>Aus dem Tresen</SectionEyebrow>
             <h2 className="mt-5 font-display display-md text-ink md:mt-6">
-              Was diese Woche <em className="italic">unter Glas</em> steht.
+              Was diese Woche unter <em className="italic">Glas</em> steht.
             </h2>
           </Reveal>
           <Reveal className="col-span-12 md:col-span-4 md:col-start-9" delay={0.05}>

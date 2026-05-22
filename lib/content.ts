@@ -127,7 +127,7 @@ export const intro = {
 export const heroCopy = {
   line1: "Eis, Pasta und",
   line2Italic: "ein Stück Mannheim.",
-  sub: "Eine kleine Manufaktur auf den Planken — für Stammgäste, Spaziergänger und alle, die zwischen zwei Terminen noch einen Espresso brauchen.",
+  sub: "Eine kleine Manufaktur mitten auf den Planken — für Stammgäste, Spaziergänger und alle, die zwischen zwei Terminen noch einen Espresso brauchen.",
 };
 
 export const highlights = [

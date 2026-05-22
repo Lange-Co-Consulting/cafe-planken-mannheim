@@ -9,11 +9,11 @@ export function Intro() {
       <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-10 md:py-36">
         <div className="grid grid-cols-12 gap-x-5 gap-y-8 md:gap-x-10 md:gap-y-10">
           <Reveal className="col-span-12 md:col-span-3">
-            <SectionEyebrow number="§ I">Über uns</SectionEyebrow>
+            <SectionEyebrow>Über uns</SectionEyebrow>
           </Reveal>
 
           <Reveal className="col-span-12 md:col-span-8 md:col-start-4" delay={0.05}>
-            <p className="font-display font-display-soft text-[clamp(1.25rem,3.4vw,2.1rem)] leading-[1.35] tracking-[-0.01em] text-ink">
+            <p className="font-display font-display-soft text-[clamp(1.125rem,2.4vw,1.625rem)] leading-[1.5] text-ink">
               {intro.body}
             </p>
           </Reveal>

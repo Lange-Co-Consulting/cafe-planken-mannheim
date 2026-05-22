@@ -17,14 +17,14 @@ export function Menu() {
     <section id="karte" className="relative" aria-label="Speisekarte">
       <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-10 md:py-36">
         <Reveal>
-          <SectionEyebrow number="§ II">Was es heute gibt</SectionEyebrow>
+          <SectionEyebrow>Speisekarte</SectionEyebrow>
         </Reveal>
 
         <div className="mt-6 grid grid-cols-12 items-end gap-x-5 gap-y-6 md:mt-10 md:gap-x-10 md:gap-y-8">
           <Reveal className="col-span-12 md:col-span-7" delay={0.05}>
             <h2 className="font-display display-lg text-ink">
-              Eine Karte, die sich <em className="italic">klein hält</em> — und
-              ihre Sachen <em className="italic">gut macht</em>.
+              Eine Karte, die sich klein hält — und ihre Sachen{" "}
+              <em className="italic">gut macht</em>.
             </h2>
           </Reveal>
           <Reveal className="col-span-12 md:col-span-4 md:col-start-9" delay={0.1}>

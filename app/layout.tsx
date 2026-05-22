@@ -1,18 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Newsreader, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { business } from "@/lib/content";
 
-const fraunces = Fraunces({
+const newsreader = Newsreader({
   variable: "--font-display",
   subsets: ["latin"],
-  axes: ["opsz", "SOFT", "WONK"],
+  axes: ["opsz"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -108,7 +110,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${fraunces.variable} ${inter.variable} ${mono.variable}`}
+      className={`${newsreader.variable} ${inter.variable} ${mono.variable}`}
     >
       <body className="min-h-screen bg-bg text-ink antialiased">
         <script

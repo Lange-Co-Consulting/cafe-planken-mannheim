@@ -10,9 +10,9 @@ export function Visit() {
       <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-10 md:py-36">
         <div className="grid grid-cols-12 gap-x-5 gap-y-6 md:gap-x-10 md:gap-y-10">
           <Reveal className="col-span-12 md:col-span-5">
-            <SectionEyebrow number="§ V">Besuchen</SectionEyebrow>
+            <SectionEyebrow>Besuchen</SectionEyebrow>
             <h2 className="mt-5 font-display display-lg text-ink md:mt-6">
-              Komm vorbei — wir <em className="italic">freuen uns</em>.
+              Komm vorbei — wir freuen uns.
             </h2>
           </Reveal>
         </div>
