@@ -58,8 +58,8 @@ export function Hero() {
           >
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-bg-soft md:aspect-[3/4]">
               <Image
-                src="https://images.unsplash.com/photo-1488900128323-21503983a07e?q=80&w=1400&auto=format&fit=crop"
-                alt="Eine Hand hält eine Eiswaffel mit zwei Kugeln Gelato vor warmem Hintergrund."
+                src="/img/storefront.jpg"
+                alt="Café Planken auf den Planken in Mannheim — goldenes Schild über dem Eingang, Outdoor-Bestuhlung zwischen Pflanzen."
                 fill
                 priority
                 sizes="(min-width: 1024px) 40vw, (min-width: 768px) 33vw, 100vw"
@@ -67,7 +67,7 @@ export function Hero() {
               />
             </div>
             <div className="mt-3 flex items-center justify-between text-[11px] text-ink-3">
-              <span className="eyebrow text-ink-3">Aus eigener Manufaktur</span>
+              <span className="eyebrow text-ink-3">Eingang · O6 6</span>
               <span aria-hidden>→</span>
             </div>
           </motion.div>

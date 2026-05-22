@@ -22,10 +22,10 @@ export function Intro() {
             className="col-span-12 md:col-span-7 md:col-start-4 md:mt-8"
             delay={0.15}
           >
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-bg-soft md:aspect-[16/8]">
+            <div className="relative aspect-[27/20] w-full overflow-hidden bg-bg-soft">
               <Image
-                src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=1800&auto=format&fit=crop"
-                alt="Espresso wird in eine kleine Tasse gegossen, warmer Lichteinfall am Holztresen."
+                src="/img/cake-mosaik.jpg"
+                alt="Eierlikör-Mosaiktorte mit dunklen Schokoladenstücken auf weißem Teller, hausgemacht im Café Planken."
                 fill
                 sizes="(min-width: 1024px) 60vw, 100vw"
                 className="object-cover"
