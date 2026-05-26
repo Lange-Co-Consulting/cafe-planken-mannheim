@@ -1,7 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowDownRight } from "lucide-react";
 import { Rating } from "@/components/ui/rating";
 import { business, heroCopy } from "@/lib/content";
@@ -12,6 +13,60 @@ const t = (delay: number) => ({
   ease: easeOut,
   delay,
 });
+
+const SPECIALS = [
+  "Mango-Eis aus der eigenen Manufaktur.",
+  "Tagliatelle al Limone, heute frisch gezogen.",
+  "Schokoladentarte, siebzig Prozent, mit Meersalz.",
+  "Affogato: doppelter Espresso über Vanille.",
+  "Spaghetti-Eis, weiße Schokolade und Erdbeere.",
+] as const;
+
+function HeuteFrisch({ delay }: { delay: number }) {
+  const reduce = useReducedMotion();
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % SPECIALS.length);
+    }, 4500);
+    return () => clearInterval(id);
+  }, [reduce]);
+
+  const initial = reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 };
+
+  return (
+    <motion.div
+      initial={initial}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: easeOut, delay }}
+      className="border-t border-rule pt-5 md:pt-6"
+      aria-label="Heute frisch aus der Manufaktur"
+    >
+      <div className="flex items-baseline gap-4 md:gap-8">
+        <span className="eyebrow-accent shrink-0">Heute frisch</span>
+        <div className="relative flex-1 overflow-hidden">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.p
+              key={SPECIALS[index]}
+              initial={reduce ? false : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduce ? undefined : { opacity: 0, y: -10 }}
+              transition={{ duration: 0.55, ease: easeOut }}
+              className="font-display italic text-ink leading-snug text-[clamp(1.125rem,2.4vw,1.75rem)]"
+            >
+              {SPECIALS[index]}
+            </motion.p>
+          </AnimatePresence>
+        </div>
+        <span className="eyebrow hidden shrink-0 tabular-nums md:inline">
+          № {String(index + 1).padStart(2, "0")} / {String(SPECIALS.length).padStart(2, "0")}
+        </span>
+      </div>
+    </motion.div>
+  );
+}
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -73,12 +128,17 @@ export function Hero() {
           </motion.div>
         </div>
 
+        {/* Heute frisch — rotating editorial specials line */}
+        <div className="mt-14 md:mt-24">
+          <HeuteFrisch delay={0.4} />
+        </div>
+
         {/* Sub copy + meta */}
-        <div className="mt-12 grid grid-cols-12 gap-x-5 gap-y-8 md:mt-20 md:gap-x-10 md:gap-y-10">
+        <div className="mt-10 grid grid-cols-12 gap-x-5 gap-y-8 md:mt-16 md:gap-x-10 md:gap-y-10">
           <motion.p
             initial={initial}
             animate={animate}
-            transition={t(0.35)}
+            transition={t(0.55)}
             className="col-span-12 max-w-[34ch] font-display-soft text-lg leading-snug text-ink-2 md:col-span-6 md:col-start-2 md:text-2xl"
           >
             {heroCopy.sub}
@@ -87,7 +147,7 @@ export function Hero() {
           <motion.div
             initial={initial}
             animate={animate}
-            transition={t(0.45)}
+            transition={t(0.65)}
             className="col-span-12 flex flex-col gap-3 md:col-span-4 md:col-start-9 md:items-end md:gap-4 md:text-right"
           >
             <Rating
